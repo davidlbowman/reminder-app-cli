@@ -1,4 +1,5 @@
 import * as path from 'path'
+import getRandomColor from './getRandomColor'
 
 const soundFile = path.join(process.cwd(), 'bell.wav')
 
@@ -12,7 +13,9 @@ function getCurrentTime() {
 
 function makeNoise() {
     const currentTime = getCurrentTime()
-    console.log(`[${currentTime}] Time to check for teeth grinding!`)
+    const randomColor = getRandomColor()
+    const message = `[${currentTime}] Time to check for teeth grinding!`
+    console.log(randomColor, message)
     Bun.spawn(['paplay', soundFile])
 }
 
