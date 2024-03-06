@@ -18,8 +18,7 @@ function generateRandomColor() {
     return [r, g, b]
 }
 
-function getRandomColorCode(color) {
-    const [r, g, b] = color
+function getRandomColorCode([r, g, b]: number[] = [255, 255, 255]) {
     return `\x1b[38;2;${r};${g};${b}m`
 }
 
