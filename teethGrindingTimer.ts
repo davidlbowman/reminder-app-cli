@@ -1,3 +1,8 @@
+const config = {
+    reminderIntervalMinutes: 15,
+    soundFile: 'bell.wav'
+}
+
 function getCurrentTime() {
     const now = new Date()
     const hours = now.getHours().toString().padStart(2, '0')
@@ -6,22 +11,35 @@ function getCurrentTime() {
     return `${hours}:${minutes}:${seconds}`
 }
 
-export default function getRandomColor() {
+function generateRandomColor() {
     const r = Math.floor(Math.random() * 256)
     const g = Math.floor(Math.random() * 256)
     const b = Math.floor(Math.random() * 256)
+    return [r, g, b]
+}
+
+function getRandomColorCode(color) {
+    const [r, g, b] = color
     return `\x1b[38;2;${r};${g};${b}m`
 }
 
 function logReminderAndPlaySound() {
     const currentTime = getCurrentTime()
-    const randomColor = getRandomColor()
+    const randomColor = generateRandomColor()
+    const colorCode = getRandomColorCode(randomColor)
     const message = `[${currentTime}] Time to stop grinding your teeth!`
-    console.log(randomColor, message)
-    Bun.spawn(['paplay', 'bell.wav'])
+    console.log(colorCode, message)
+    try {
+        Bun.spawn(['paplay', config.soundFile])
+    } catch (error) {
+        console.error('Failed to play sound:', error)
+    }
 }
 
-logReminderAndPlaySound()
+function startReminders() {
+    logReminderAndPlaySound()
+    const interval = 60000 * config.reminderIntervalMinutes
+    setInterval(logReminderAndPlaySound, interval)
+}
 
-const minutes = 15
-setInterval(logReminderAndPlaySound, 1000 * 60 * minutes)
+startReminders()
