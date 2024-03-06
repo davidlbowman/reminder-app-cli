@@ -1,8 +1,3 @@
-import * as path from 'path'
-import getRandomColor from './getRandomColor'
-
-const soundFile = path.join(process.cwd(), 'bell.wav')
-
 function getCurrentTime() {
     const now = new Date()
     const hours = now.getHours().toString().padStart(2, '0')
@@ -11,15 +6,22 @@ function getCurrentTime() {
     return `${hours}:${minutes}:${seconds}`
 }
 
-function makeNoise() {
-    const currentTime = getCurrentTime()
-    const randomColor = getRandomColor()
-    const message = `[${currentTime}] Time to check for teeth grinding!`
-    console.log(randomColor, message)
-    Bun.spawn(['paplay', soundFile])
+export default function getRandomColor() {
+    const r = Math.floor(Math.random() * 256)
+    const g = Math.floor(Math.random() * 256)
+    const b = Math.floor(Math.random() * 256)
+    return `\x1b[38;2;${r};${g};${b}m`
 }
 
-makeNoise()
+function logReminderAndPlaySound() {
+    const currentTime = getCurrentTime()
+    const randomColor = getRandomColor()
+    const message = `[${currentTime}] Time to stop grinding your teeth!`
+    console.log(randomColor, message)
+    Bun.spawn(['paplay', 'bell.wav'])
+}
+
+logReminderAndPlaySound()
 
 const minutes = 15
-setInterval(makeNoise, 1000 * 60 * minutes)
+setInterval(logReminderAndPlaySound, 1000 * 60 * minutes)
