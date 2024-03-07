@@ -20,9 +20,12 @@ This is a TypeScript application that generates reminders at specified intervals
 
 ## Usage
 
-1. Make sure you have TypeScript and the necessary dependencies installed.
-2. Update the `config` array in `startReminders.ts` with your desired reminder configurations. Each reminder should have a `message`, `interval` (in milliseconds), and `soundFile` (path to the sound file).
-3. Run the application using a TypeScript runtime or compile it to JavaScript and run the resulting code.
+1. Make sure you have [Node.js](https://nodejs.org/) and [Bun](https://bun.sh/) installed.
+2. Clone the repository `https://github.com/yourusername/reminder-app.git`.
+3. Navigate to the project directory `cd reminder-app`.
+4. Install the dependencies using `bun install` or `npm install` if you don't have bun installed.
+5. Update the `config` array in `startReminders.ts` with your desired reminder configurations. Each reminder should have a `message`, `interval` (in milliseconds), and `soundFile` (path to the sound file).
+6. Run the application using `bun run start` or `npm run start` if you don't have bun installed.
 
 ## Configuration
 
