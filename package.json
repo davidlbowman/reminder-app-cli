@@ -5,6 +5,9 @@
         "typescript": "^5.0.0"
     },
     "type": "module",
+    "scripts": {
+        "start": "bun run teethGrindingTimer.ts"
+    },
     "devDependencies": {
         "@types/bun": "latest"
     }
