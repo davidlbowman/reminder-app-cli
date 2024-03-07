@@ -1,52 +1,44 @@
-# Teeth Grinding Reminder Script
+# Reminder App
 
-This script is designed to help you remember to stop grinding your teeth by displaying periodic reminders and playing a sound at configurable intervals.
+This is a TypeScript application that generates reminders at specified intervals and plays sound notifications. It allows you to define multiple reminders with custom messages, intervals, and sound files.
 
 ## Features
 
--   Displays a reminder message with the current time in the console
--   Generates random color codes for each reminder message
--   Plays a configurable sound file when each reminder is triggered
--   Allows customization of the reminder interval and sound file
+-   Define multiple reminders with custom messages, intervals, and sound files
+-   Display reminders with colorful output using ANSI escape codes
+-   Play sound notifications using the specified sound files
+-   Automatically start reminders based on the provided configuration
 
-## Prerequisites
+## File Structure
 
--   Make sure you have [Bun](https://bun.sh/) installed on your system.
--   The script assumes you have a sound file named `bell.wav` in the same directory as the script. You can replace it with your preferred sound file.
-
-## Configuration
-
-The script includes a configuration object `config` where you can customize the following settings:
-
--   `reminderIntervalMinutes`: The interval (in minutes) between each reminder. Default is set to 15 minutes.
--   `soundFile`: The name of the sound file to be played when each reminder is triggered. Default is set to `'bell.wav'`.
+-   `startReminders.ts`: The main entry point of the application. It defines the `Reminder` interface and the `config` array, which contains the reminder configurations. It also starts the reminders by calling `logReminderAndPlaySound` for each reminder.
+-   `utilities/`: A directory containing utility functions used by the application.
+    -   `generateRandomColor.ts`: Generates a random color represented as an array of three numbers (red, green, blue).
+    -   `getColorCode.ts`: Takes an array of three numbers representing a color and returns the corresponding ANSI escape code for that color.
+    -   `getCurrentTime.ts`: Gets the current time as a formatted string (HH:MM:SS).
+    -   `logReminderAndPlaySound.ts`: Logs a reminder message with a random color and plays the specified sound file.
 
 ## Usage
 
-1. Make sure you have Bun installed on your system.
-2. Save the script to a file with a `.js` extension (e.g., `teeth-grinding-reminder.js`).
-3. Open a terminal or command prompt and navigate to the directory where the script is saved.
-4. Run the script using the following command:
+1. Make sure you have TypeScript and the necessary dependencies installed.
+2. Update the `config` array in `startReminders.ts` with your desired reminder configurations. Each reminder should have a `message`, `interval` (in milliseconds), and `soundFile` (path to the sound file).
+3. Run the application using a TypeScript runtime or compile it to JavaScript and run the resulting code.
 
-    ```
-    bun teeth-grinding-reminder.js
-    ```
+## Configuration
 
-5. The script will start running, and you will see reminder messages displayed in the console at the configured interval.
+The `config` array in `startReminders.ts` holds the reminder configurations. Each reminder is an object with the following properties:
 
-## Customization
+-   `message` (string): The message to be displayed for the reminder.
+-   `interval` (number): The interval at which the reminder should be triggered, in milliseconds.
+-   `soundFile` (string): The path to the sound file to be played when the reminder is triggered.
 
--   To change the reminder interval, modify the `reminderIntervalMinutes` value in the `config` object.
--   To use a different sound file, replace the `soundFile` value in the `config` object with the name of your desired sound file. Make sure the sound file is located in the same directory as the script.
+You can add, remove, or modify the reminder configurations in the `config` array to suit your needs.
 
-## Contributing
+## Dependencies
 
-If you have any suggestions, improvements, or bug fixes, feel free to open an issue or submit a pull request on the [GitHub repository](https://github.com/your-username/teeth-grinding-reminder).
+-   TypeScript: Make sure you have TypeScript installed to compile and run the application.
+-   Sound playback: The application uses the `paplay` command to play sound files. Make sure you have the necessary audio playback software installed and accessible from the command line.
 
 ## License
 
-This script is open-source and available under the [MIT License](https://opensource.org/licenses/MIT).
-
----
-
-Feel free to customize the README file based on your specific requirements and add any additional sections or information that you think would be helpful for users of your script.
+This project is licensed under the [MIT License](LICENSE).
