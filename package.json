@@ -1,12 +1,12 @@
 {
-    "name": "teethgrindingtimer",
+    "name": "startreminders",
     "module": "index.ts",
     "peerDependencies": {
         "typescript": "^5.0.0"
     },
     "type": "module",
     "scripts": {
-        "start": "bun run teethGrindingTimer.ts"
+        "start": "bun run startReminders.ts"
     },
     "devDependencies": {
         "@types/bun": "latest"
