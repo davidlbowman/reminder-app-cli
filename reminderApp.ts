@@ -19,11 +19,11 @@ const config: Reminder[] = [
     }
 ]
 
-function startReminders(): void {
+function reminderApp() {
     config.forEach(reminder => {
         logReminderAndPlaySound(reminder)
         setInterval(() => logReminderAndPlaySound(reminder), reminder.interval)
     })
 }
 
-startReminders()
+reminderApp()

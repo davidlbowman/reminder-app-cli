@@ -1,12 +1,12 @@
 {
-    "name": "startreminders",
+    "name": "reminder-app",
     "module": "index.ts",
     "peerDependencies": {
         "typescript": "^5.0.0"
     },
     "type": "module",
     "scripts": {
-        "start": "bun run startReminders.ts"
+        "start": "bun run reminderApp.ts"
     },
     "devDependencies": {
         "@types/bun": "latest"
