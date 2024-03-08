@@ -1,4 +1,4 @@
-import { type Reminder } from '../startReminders'
+import { type Reminder } from '../reminderApp'
 import { getCurrentTime } from './getCurrentTime'
 import { generateRandomColor } from './generateRandomColor'
 import { getColorCode } from './getColorCode'
