@@ -6,7 +6,8 @@
     },
     "type": "module",
     "scripts": {
-        "start": "bun run reminderApp.ts"
+        "start": "bun run reminderApp.ts",
+        "test": "bun test"
     },
     "devDependencies": {
         "@types/bun": "latest"
