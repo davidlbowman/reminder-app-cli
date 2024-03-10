@@ -1,15 +1,16 @@
 {
-    "name": "reminder-app",
-    "module": "index.ts",
-    "peerDependencies": {
-        "typescript": "^5.0.0"
-    },
-    "type": "module",
-    "scripts": {
-        "start": "bun run reminderApp.ts",
-        "test": "bun test"
-    },
-    "devDependencies": {
-        "@types/bun": "latest"
-    }
+  "name": "reminder-app",
+  "module": "index.ts",
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "type": "module",
+  "scripts": {
+    "start": "bun run reminderApp.ts",
+    "test": "bun test"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.6.0",
+    "@types/bun": "latest"
+  }
 }
