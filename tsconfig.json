@@ -28,8 +28,9 @@
         "baseUrl": ".",
         "paths": {
             "@/*": ["./*"],
-            "@/utilities/": ["/utilities/*"],
-            "@/tests/": ["/tests/*"]
+            "@/sounds/": ["/sounds/*"],
+            "@/tests/": ["/tests/*"],
+            "@/utilities/": ["/utilities/*"]
         }
     }
 }
