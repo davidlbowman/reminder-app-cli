@@ -6,6 +6,7 @@
 	},
 	"type": "module",
 	"scripts": {
+		"check": "bunx @biomejs/biome check ./",
 		"start": "bun run reminderApp.ts",
 		"test": "bun test"
 	},
