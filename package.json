@@ -12,5 +12,8 @@
 	"devDependencies": {
 		"@biomejs/biome": "1.6.0",
 		"@types/bun": "latest"
+	},
+	"dependencies": {
+		"lefthook": "^1.6.5"
 	}
 }
